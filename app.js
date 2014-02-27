@@ -30,7 +30,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// routes to controller mapping
 app.get('/', routes.index);
+app.get('/login', routes.login);
+app.get('/register', routes.register);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

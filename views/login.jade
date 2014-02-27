@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  h2 Login page
+  div
+    form(method="post", action="/session", name="login_form")
+        label Email or user name
+            input(type="text", name="username")
+        label Password
+            input(type="password", name="password")
+        button(type="submit") Login
