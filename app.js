@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
-app.use(express.session());
+app.use(express.session({secret: 'my secret session'}));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,8 +33,13 @@ if ('development' == app.get('env')) {
 // routes to controller mapping
 app.get('/', routes.index);
 app.get('/login', routes.login);
+app.get('/logout', routes.logout);
 app.get('/register', routes.register);
+app.get('/home', routes.home);
 app.get('/users', user.list);
+
+app.post('/session', routes.session);
+app.post('/signup', routes.signup);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
