@@ -19,7 +19,7 @@ exports.register = function(req, res){
 };
 
 exports.signup = function(req, res) {
-  res.send('Signed up success');
+  res.redirect('/home');
 };
 
 exports.home = function (req, res){
