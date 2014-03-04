@@ -27,13 +27,32 @@ exports.home = function (req, res){
   res.render('home', {title: 'Home' });
 };
 
+exports.balancesheet = function (req, res) {
+  res.render('balancesheet', {title: 'Balance Sheet' });
+};
+
+exports.transactions = function (req, res) {
+  res.render('transactions', {title: 'Transactions' });
+};
+
+exports.budgeting = function (req, res) {
+  res.render('budgeting', {title: 'Budgeting' });
+};
+
+exports.reporting = function (req, res) {
+  res.render('reporting', {title: 'Reporting' });
+};
+
 exports.session = function(req, res) {
-  // console.log('user logged in');
-  if(req.session.lastPage) {
-    // res.write('saved lastpage: ' + req.session.lastPage);
+
+  if(req.body.username === 'admin' && req.body.password == 'admin123') {
     res.redirect('/home');
+    //
+    //if(req.session.lastPage) {
+    //res.redirect('/home');
   } else {
     res.redirect('/');
   }
+
 };
 

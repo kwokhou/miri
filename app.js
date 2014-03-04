@@ -36,6 +36,10 @@ app.get('/login', routes.login);
 app.get('/logout', routes.logout);
 app.get('/register', routes.register);
 app.get('/home', routes.home);
+app.get('/balancesheet', routes.balancesheet);
+app.get('/transactions', routes.transactions);
+app.get('/budgeting', routes.budgeting);
+app.get('/reporting', routes.reporting);
 app.get('/users', user.list);
 
 app.post('/session', routes.session);
