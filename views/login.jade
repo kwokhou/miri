@@ -5,9 +5,9 @@ block content
   p Login page
   div
     form(method="post", action="/session")
-        input(type="hidden", name="_csrf", value=locals._csrf)
-        label Email or user name
-            input(type="text", name="username")
-        label Password
-            input(type="password", name="password")
-        button(type="submit") Login
+      input(type="hidden", name="_csrf", value=locals._csrf)
+      label Email or user name
+        input(type="text", name="username")
+      label Password
+        input(type="password", name="password")
+      button(type="submit") Login
