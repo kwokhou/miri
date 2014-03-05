@@ -2,12 +2,11 @@
  * GET home page.
  */
 exports.index = function(req, res){
-  res.render('index', { title: 'Index' });
+  res.render('index');
 };
 
 exports.login = function(req, res){
-  req.session.lastPage = '/login';
-  res.render('login', {title: 'Login' });
+  res.render('login');
 };
 
 exports.logout = function(req, res){
@@ -44,10 +43,8 @@ exports.reporting = function (req, res) {
 };
 
 exports.session = function(req, res) {
-
   if(req.body.username === 'admin' && req.body.password == 'admin123') {
     res.redirect('/home');
-    //
     //if(req.session.lastPage) {
     //res.redirect('/home');
   } else {
