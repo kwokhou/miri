@@ -33,11 +33,11 @@ if ('development' == app.get('env')) {
   app.locals.pretty = true;
 }
 
-// middleware to set csrf token to local
-// var csrf = function(req, res, next) {
-//  res.locals._csrf = req.csrfToken();
-//  next();
-// }
+// middleware to set csrf token to locals
+var csrf = function(req, res, next) {
+  res.locals._csrf = req.csrfToken();
+  next();
+};
 
 // init helpers objects
 app.locals.errors = {};
@@ -45,7 +45,7 @@ app.locals.message = {};
 
 // routes to controller mapping
 app.get('/', routes.index);
-app.get('/login', routes.login);
+app.get('/login', csrf, routes.login);
 app.get('/logout', routes.logout);
 app.get('/register', routes.register);
 app.get('/home', routes.home);
