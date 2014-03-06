@@ -23,11 +23,17 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('yes your secret here'));
 app.use(express.session({secret: 'my secret session'}));
+
+/*
+ * Uncomment to enable CSRF
+ *
 app.use(express.csrf());
 app.use(function (req, res, next) {
   res.locals._csrf = req.csrfToken();
   next();
 });
+
+*/
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -37,10 +43,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
   app.locals.pretty = true;
 }
-
-// init helpers objects
-// app.locals.errors = {};
-// app.locals.message = {};
 
 // routes to controller mapping
 app.get('/', routes.index);
