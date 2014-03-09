@@ -49,7 +49,6 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/home', routes.home);
-app.get('/balancesheet', routes.balancesheet);
 app.get('/transactions', routes.transactions);
 app.get('/budgeting', routes.budgeting);
 app.get('/reporting', routes.reporting);
@@ -57,6 +56,9 @@ app.get('/reporting', routes.reporting);
 app.post('/logout', routes.logout);
 app.post('/session', routes.session);
 app.post('/signup', routes.signup); // submit from register page
+
+app.get('/networth', routes.networth);
+app.post('/networth/save', routes.networth.save);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

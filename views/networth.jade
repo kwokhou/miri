@@ -1,0 +1,14 @@
+
+extends layout-user
+
+block content
+  h1= title
+  p Define your balance
+
+  div
+    form(action='/networth/save' method='post')
+      label Name
+        input(type='text')
+      label Amount
+        input(type='text')
+      button(type='submit') Save

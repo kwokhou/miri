@@ -26,8 +26,14 @@ exports.home = function (req, res){
   res.render('home', {title: 'Home' });
 };
 
-exports.balancesheet = function (req, res) {
-  res.render('balancesheet', {title: 'Balance Sheet' });
+exports.networth = function (req, res) {
+  res.render('networth', {title: 'Net worth' });
+};
+
+exports.networth.save = function (req, res) {
+  // res.send('this is balane sheet save');
+  console.log('saved');
+  res.render('networth', {title: 'Net worth' });
 };
 
 exports.transactions = function (req, res) {
