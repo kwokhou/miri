@@ -26,14 +26,15 @@ exports.home = function (req, res){
   res.render('home', {title: 'Home' });
 };
 
-exports.networth = function (req, res) {
-  res.render('networth', {title: 'Net worth' });
-};
-
-exports.networth.save = function (req, res) {
-  // res.send('this is balane sheet save');
-  console.log('saved');
-  res.render('networth', {title: 'Net worth' });
+exports.networth = {
+  get: function (req, res) {
+    console.log('networth get');
+    res.render('networth', {title: 'Net worth' });
+  },
+  post: function (req, res) {
+    console.log('networth post');
+    res.render('networth', {title: 'Net worth' });
+  }
 };
 
 exports.transactions = function (req, res) {

@@ -57,8 +57,8 @@ app.post('/logout', routes.logout);
 app.post('/session', routes.session);
 app.post('/signup', routes.signup); // submit from register page
 
-app.get('/networth', routes.networth);
-app.post('/networth/save', routes.networth.save);
+app.get('/networth', routes.networth.get);
+app.post('/networth', routes.networth.post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
