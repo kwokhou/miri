@@ -27,12 +27,12 @@ exports.home = function (req, res){
 };
 
 var mongo = require('mongoose');
-mongo.connect('mongodb://localhost:port/db_name');
-var db = mongo.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function cb() {
-    console.log('mongodb connection is opened.');
-});
+// mongo.connect('mongodb://localhost:port/db_name');
+// var db = mongo.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function cb() {
+//     console.log('mongodb connection is opened.');
+// });
 
 var Account = mongo.model('Account', {
     name: String,
@@ -42,7 +42,6 @@ var Account = mongo.model('Account', {
 });
 
 exports.networth = {
-
   get: function (req, res) {
     console.log('networth get');
     res.render('networth', {title: 'Net worth' });
@@ -61,12 +60,20 @@ exports.networth = {
         }
         console.log('Account saved');
     });
+
     res.render('networth', {title: 'Net worth' });
   }
 };
 
 exports.transactions = function (req, res) {
   res.render('transactions', {title: 'Transactions' });
+};
+
+exports.transaction = {
+  post: function (req, res) {
+    var data = {firstName: 'Andy', lastName: 'Yong'};
+    res.json(data);
+  }
 };
 
 exports.budgeting = function (req, res) {
@@ -84,4 +91,3 @@ exports.session = function(req, res) {
     res.redirect('/');
   }
 };
-

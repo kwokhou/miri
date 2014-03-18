@@ -59,6 +59,7 @@ app.post('/signup', routes.signup); // submit from register page
 
 app.get('/networth', routes.networth.get);
 app.post('/networth', routes.networth.post);
+app.post('/transaction', routes.transaction.post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
