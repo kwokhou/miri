@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html ng-app="miriApp">
+<head>
+    <title>Index</title>
+</head>
+<body ng-controller="MiriListCtrl">
+    <h2>This is the public index file {{'Yet ' + '!'}}</h2>
+
+    <ul>
+        <li ng-repeat="phone in phones">
+            {{phone.name}}
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+
+    <script src="/scripts/angular.min.js"></script>
+    <script src="/scripts/core.js"></script>
+</body>
+</html>

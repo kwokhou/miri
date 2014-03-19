@@ -22,9 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('yes your secret here'));
-app.use(express.session({secret: 'my secret session'}));
+app.use(express.session({ secret: 'my secret session' }));
 
-/*
+/**
  * Uncomment to enable CSRF
  *
 app.use(express.csrf());
@@ -32,16 +32,25 @@ app.use(function (req, res, next) {
   res.locals._csrf = req.csrfToken();
   next();
 });
-
 */
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res) {
+    res.status(404);
+    res.render('404', { title: '404: File Not Found' });
+});
+
+app.use(function (err, req, res, next) {
+    res.status(500);
+    res.render('500', { title: '500: Internal Server Error', error: err });
+});
+
 // development env setup
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-  app.locals.pretty = true;
+    app.use(express.errorHandler());
+    app.locals.pretty = true;
 }
 
 // routes to controller mapping
@@ -61,7 +70,6 @@ app.get('/networth', routes.networth.get);
 app.post('/networth', routes.networth.post);
 app.post('/transaction', routes.transaction.post);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });
-
