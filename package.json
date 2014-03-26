@@ -6,10 +6,15 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.4.*",
+    "express": "^3.5.0",
     "mongoose": "*",
     "passport": "*",
-    "jade": "*"
+    "jade": "*",
+    "should": "^3.2.0-beta1",
+    "karma": "^0.12.1"
+  },
+  "devDependencies": {
+    "karma": "*",
+    "should": "*"
   }
 }
-

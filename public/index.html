@@ -1,76 +1,35 @@
 ﻿<!DOCTYPE html>
 <html ng-app="miriApp">
 <head>
-    <title>Index</title>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<title>Index</title>
+<link rel="stylesheet" href="/bower_components/unsemantic/assets/stylesheets/unsemantic-grid-responsive-no-ie7.css" />
 </head>
 <body ng-controller="MiriListCtrl">
-    <h2>This is the public index file {{'Yet ' + '!'}}</h2>
 
-    <ul>
-        <li ng-repeat="phone in phones">
-            {{phone.name}}
-            <p>{{phone.snippet}}</p>
-        </li>
-    </ul>
-    <!--Block target shapes from being dragged, handle dragover event by returning false-->
-    <div>
-        <div id="emptyTri" ondragover="return false;">
-            <img draggable="false" alt="empty triangle" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
-        <div id="emptySqr" ondragover="return false;">
-            <img draggable="false" alt="empty square" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
-        <div id="emptyCirc" ondragover="return false;">
-            <img draggable="false" alt="empty circle" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
+    <div class="grid-container">
+      <div class="grid-10">
+        I am 10% wide.
+      </div>
+      <div class="grid-20">
+        I am 20% wide.
+      </div>
+      <div class="grid-30">
+        I am 30% wide.
+      </div>
+      <div class="grid-40">
+        <ul>
+            <li ng-repeat="phone in phones">
+                {{phone.name}}
+                <p>{{phone.snippet}}</p>
+            </li>
+        </ul>
+      </div>
     </div>
 
-    <!--Set solid shapes to be draggable-->
-    <div>
-        <div id="filledSqr" draggable="true">
-            <img alt="filled square" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
-        <div id="filledTri" draggable="true">
-            <img alt="filled triangle" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
-        <div id="filledCirc" draggable="true">
-            <img alt="filled Circle" src="http://www.tutorialspoint.com/images/tp-logo.gif" />
-        </div>
-    </div>
-
-    <script>
-        // Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings.
-        function checkShapeDrop(e) {
-            var target = this.id.replace("empty", "");
-            var elt = e.dataTransfer.getData('text').replace("filled", "");
-
-            // if we have a match, replace empty shape with filled shape image
-            if (target == elt) {
-                this.children[0].src = "http://www.tutorialspoint.com/images/tp-logo.gif";
-
-                // Remove the original filled image to give illusion that the filled
-                // image is now inside the empty one
-                document.getElementById(e.dataTransfer.getData('text')).style.display = "none";
-            } else {
-                //not a match
-            }
-        }
-
-        // When dragging starts, set dataTransfer's data to the element's id.
-        function startShapeDrag(e) {
-            e.dataTransfer.setData('text', this.id);
-        }
-
-        // Assign event listeners to the divs to handle dragging.
-        document.getElementById('filledTri').addEventListener('dragstart', startShapeDrag, false);
-        document.getElementById('filledCirc').addEventListener('dragstart', startShapeDrag, false);
-        document.getElementById('filledSqr').addEventListener('dragstart', startShapeDrag, false);
-        document.getElementById('emptyTri').addEventListener('drop', checkShapeDrop, false);
-        document.getElementById('emptySqr').addEventListener('drop', checkShapeDrop, false);
-        document.getElementById('emptyCirc').addEventListener('drop', checkShapeDrop, false);
-    </script>
-
-    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/scripts/main.js"></script>
 </body>
 </html>
