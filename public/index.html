@@ -8,25 +8,39 @@
 <link rel="stylesheet" href="/bower_components/unsemantic/assets/stylesheets/unsemantic-grid-responsive-no-ie7.css" />
 </head>
 <body ng-controller="MiriListCtrl">
-
     <div class="grid-container">
-      <div class="grid-10">
-        I am 10% wide.
-      </div>
-      <div class="grid-20">
-        I am 20% wide.
-      </div>
-      <div class="grid-30">
-        I am 30% wide.
-      </div>
-      <div class="grid-40">
-        <ul>
-            <li ng-repeat="phone in phones">
-                {{phone.name}}
-                <p>{{phone.snippet}}</p>
-            </li>
-        </ul>
-      </div>
+        <div class="grid-100">
+            <h1>My Projects</h1>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-50">
+            <a href="/project/new">New Project</a>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-50">
+            <h4>Projects 1</h4>
+        </div>
+        <div class="grid-50">
+            <p>My first project</p>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-50">
+            <h4>Projects 2</h4>
+        </div>
+        <div class="grid-50">
+            <p>
+                My 2nd project
+                <ul>
+                    <li ng-repeat="phone in phones">
+                        {{phone.name}}
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+            </p>
+        </div>
     </div>
 
     <script src="/bower_components/angular/angular.min.js"></script>
