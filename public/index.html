@@ -35,8 +35,8 @@
                 My 2nd project
                 <ul>
                     <li ng-repeat="phone in phones">
-                        {{phone.name}}
-                        <p>{{phone.snippet}}</p>
+                        <span ng-bind-template="{{phone.name}}"></span>
+                        <p ng-bind-template="This is the phone {{phone.snippet}}">This is the phone</p>
                     </li>
                 </ul>
             </p>

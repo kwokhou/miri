@@ -54,7 +54,6 @@ if ('development' == app.get('env')) {
 }
 
 // routes to controller mapping
-app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/home', routes.home);

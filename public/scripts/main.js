@@ -1,6 +1,6 @@
-var miriApp = angular.module('miriApp', []);
+var miriApp = angular.module('miriApp', ['ngRoute']);
 
-miriApp.controller('MiriListCtrl', function ($scope) {
+miriApp.controller('MiriListCtrl', ['$scope', function ($scope) {
     $scope.phones = [
         {
             'name': 'Nexus S',
@@ -11,4 +11,4 @@ miriApp.controller('MiriListCtrl', function ($scope) {
             'snippet': 'The next, next generation tablet'
         }
     ];
-});
+}]);
